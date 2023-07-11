@@ -15,16 +15,16 @@
       </div>
       <nav>
         <ul>
-          <li><a href="#" class="nav-item">Home</a></li>
-          <li><a href="#" class="nav-item">Tentang</a></li>
-          <li><a href="#" class="nav-item">Layanan</a></li>
-          <li><a href="#" class="nav-item">Kontak</a></li>
+          <li><a href="#home" class="nav-item">Home</a></li>
+          <li><a href="#about" class="nav-item">Tentang</a></li>
+          <li><a href="#service" class="nav-item">Layanan</a></li>
+          <li><a href="#contact" class="nav-item">Kontak</a></li>
         </ul>
       </nav>
     </header>
 
     <!--Home Section-->
-    <section class="home">
+    <section class="home" id="home">
       <div class="left-side">
         <h1 class="title one">BPJS</h1>
         <h1 class="title two">KESEHATAN</h1>
@@ -41,7 +41,7 @@
     </section>
 
     <!---About Section-->
-    <section class="about">
+    <section class="about" id="about">
       <div class="left-side">
         <div class="image">
           <img
@@ -51,8 +51,8 @@
           />
         </div>
         <div class="card">
-            <img src="assets/images/fast-response.png" alt="message-icon">
-            <p class="text">Layanan Cepat</p>
+          <img src="assets/images/fast-response.png" alt="message-icon" />
+          <p class="text">Layanan Cepat</p>
         </div>
       </div>
       <div class="right-side">
@@ -78,5 +78,99 @@
         </p>
       </div>
     </section>
+
+    <!--Service Section-->
+    <section class="service" id="service">
+      <h1 class="title">LAYANAN</h1>
+
+      <div class="card-grid">
+        <div class="card">
+          <div class="container">
+            <img src="assets/icons/1-card.png" alt="register icon" />
+          </div>
+          <p class="text">Registrasi Peserta PPU Badan Usaha</p>
+        </div>
+
+        <div class="card">
+          <div class="container">
+            <img src="assets/icons/2-card.png" alt="register icon" />
+          </div>
+          <p class="text">Layanan Peserta JKN-KIS</p>
+        </div>
+
+        <div class="card">
+          <div class="container">
+            <img src="assets/icons/3-card.png" alt="register icon" />
+          </div>
+          <p class="text">Informasi Fasilitas Kesehatan</p>
+        </div>
+
+        <div class="card">
+          <div class="container">
+            <img src="assets/icons/4-card.png" alt="register icon" />
+          </div>
+          <p class="text">Skrining Riwayat Kesehatan</p>
+        </div>
+
+        <div class="card">
+          <div class="container">
+            <img src="assets/icons/5-card.png" alt="register icon" />
+          </div>
+          <p class="text">Registrasi Autodebit</p>
+        </div>
+
+        <div class="card">
+          <div class="container">
+            <img src="assets/icons/6-card.png" alt="register icon" />
+          </div>
+          <p class="text">Informasi, Pengaduan, Saran & Aspirasi</p>
+        </div>
+      </div>
+    </section>
+
+    <!--Contact Section-->
+    <section class="contact" id="contact">
+      <h1 class="title">Kontak</h1>
+      <div class="body">
+        <div class="left-side">
+          <form>
+            <label class="label" for="name">Name:</label>
+            <input class="input" type="text" name="name" id="name" />
+
+            <label class="label" for="email">Email:</label>
+            <input class="input" type="text" name="email" id="email" />
+
+            <label class="label" for="message">Message:</label>
+            <textarea
+              class="textarea"
+              rows="5"
+              cols="30"
+              name="message"
+              id="message"
+            ></textarea>
+
+            <input class="button" type="submit" value="Kirim" />
+          </form>
+        </div>
+
+        <div class="right-side">
+          <div class="sub-cont">
+            <p class="text">Email</p>
+            <p class="content">bpjskspalopo@gmail.com</p>
+          </div>
+          <div class="sub-cont">
+            <p class="text">Phone</p>
+            <p class="content">+6280 12345678</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!--Footer Section-->
+    <footer>
+      <p class="title">Support By:</p>
+      <img class="logos" src="assets/icons/logo-w.png" alt="Sponsor Line Up">
+      <p class="rights">&copy Copyright UNCP - Palopo 2023</p>
+    </footer>
   </body>
 </html>
