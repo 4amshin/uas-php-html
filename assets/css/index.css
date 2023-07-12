@@ -32,7 +32,7 @@ li {
 /*Header Style*/
 
 header {
-    background-color: var(--green-light);
+    background-color: var(--green-primary);
     height: 80px;
     padding: 0 80px;
     display: flex;
@@ -40,10 +40,12 @@ header {
     justify-content: space-between;
 }
 
+/*header logo*/
 .logo img {
     height: 45px;
 }
 
+/*nav bar style*/
 nav ul {
     display: flex;
     gap: 45px;
@@ -51,15 +53,17 @@ nav ul {
     padding: 0;
 }
 
+/*nav bar item style*/
 .nav-item {
-    color: var(--blue-primary);
+    color: white;
     font-weight: bold;
     font-size: 17px;
     transition: color 0.3s ease;
 }
 
+/*nav bar item hover style*/
 .nav-item:hover {
-    color: var(--green-primary);
+    color: var(--blue-primary);
 }
 
 
@@ -75,16 +79,19 @@ nav ul {
     align-items: center;
 }
 
+/*home left-side style*/
 .home .left-side {
     padding-right: 50px;
     display: flex;
     flex-direction: column;
 }
 
+/*left-side image style*/
 .home .right-side img {
     height: 550px;
 }
 
+/*left-side title style*/
 .home .title {
     margin: 0;
     padding: 0;
@@ -93,14 +100,17 @@ nav ul {
     line-height: 0.9;
 }
 
+/*title blue color*/
 .home .title.one {
     color: var(--blue-primary);
 }
 
+/*title green color*/
 .home .title.two {
     color: var(--green-primary);
 }
 
+/*subtitle "city name" style*/
 .home .subtitle {
     margin: 0;
     padding: 0;
@@ -110,6 +120,7 @@ nav ul {
     line-height: 1;
 }
 
+/*detail button style*/
 .detail-button {
     padding: 15px 18px;
     max-width: 40%;
@@ -143,27 +154,32 @@ nav ul {
     gap: 100px;
 }
 
+/*left-side style*/
 .about .left-side {
     padding-left: 40px;
     position: relative;
 }
 
+/*left-side image div style*/
 .about .left-side .image {
-    background-color: red;
+    background-color: var(--green-light);
     height: 500px;
     width: 400px;
     border-radius: 80px;
     overflow: hidden;
 }
 
+/*left-side img tag transition*/
 .about .left-side .image img {
     transition: transform 0.5s ease;
 }
 
+/*left-side img tag hover*/
 .about .left-side .image img:hover {
     transform: scale(1.2);
 }
 
+/*bottom left card style*/
 .about .left-side .card {
     position: absolute;
     bottom: -10px;
@@ -178,6 +194,7 @@ nav ul {
     transition: background-color 0.5s ease, color 0.5s ease, transform 0.5s ease, brightness 0.5s ease;
 }
 
+/*bottom left card hover*/
 .about .left-side .card:hover {
     background-color: var(--green-primary);
     color: white;
@@ -185,16 +202,19 @@ nav ul {
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
 }
 
+/*when bottom left card is hover => change the image color*/
 .about .left-side .card:hover img{
     filter: brightness(10);
 }
 
+/*bottom left card image style*/
 .about .left-side .card img {
     height: 40px;
     object-fit: contain;
     margin-right: 15px;
 }
 
+/*bottom left card text style*/
 .about .left-side .card .text {
     /* color: var(--blue-primary); */
     font-weight: 600;
@@ -202,17 +222,20 @@ nav ul {
     white-space: nowrap;
 }
 
-
+/*left-side office image style*/
 .about .left-side img {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
 
+/*right side padding*/
 .about .right-side {
     padding-right: 40px;
 }
 
+
+/*right-side title style*/
 .about .title {
     margin: 0;
     padding: 0;
@@ -220,11 +243,13 @@ nav ul {
     color: var(--green-primary);
 }
 
+/*right-side description text style*/
 .about .description {
     font-size: 17px;
     text-align: justify;
 }
 
+/*description bold blue text*/
 .about .description .bold-color {
     color: var(--blue-primary);
 }
@@ -244,6 +269,7 @@ nav ul {
     align-items: center;
 }
 
+/*service section title*/
 .service .title {
     margin: 0;
     padding-bottom: 40px;
@@ -251,6 +277,7 @@ nav ul {
     color: var(--blue-primary);
 }
 
+/*set the card into grid style*/
 .service .card-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -258,6 +285,7 @@ nav ul {
     column-gap: 120px;
 }
 
+/*card style*/
 .service .card {
     display: flex;
     flex-direction: column;
@@ -265,6 +293,7 @@ nav ul {
     align-items: center;
 }
 
+/*card container style*/
 .service .card .container {
     height: 200px;
     width: 230px;
@@ -276,11 +305,13 @@ nav ul {
     transition: background-color 0.5s ease;
 }
 
+/*card container hover*/
 .service .card .container:hover {
     background-color: var(--green-primary);
     border: 2px solid var(--green-primary);
 }
 
+/*card text*/
 .service .card .text {
     color: var(--blue-primary);
     font-weight: 600;
@@ -290,15 +321,18 @@ nav ul {
     text-align: center;
 }
 
+/*when card container is hover, change the card text color*/
 .service .card .container:hover + .text {
     color: var(--green-primary);
 }
 
+/*card container icon*/
 .service .card .container img {
     height: 100px;
     transition: brightness 0.5s ease;
 }
 
+/*change the card container icon color when hover*/
 .service .card .container:hover img {
     filter: brightness(1.3);
 }
@@ -318,6 +352,7 @@ nav ul {
     align-items: center;
 }
 
+/*contact section title style*/
 .contact .title {
     margin: 0;
     padding-bottom: 40px;
@@ -325,10 +360,12 @@ nav ul {
     color: var(--green-primary);
 }   
 
+/*contact section body style*/
 .contact .body {
     display: flex;
 }
 
+/*left-side form style*/
 .contact .left-side form {
     display: flex;
     flex-direction: column;
@@ -343,15 +380,24 @@ nav ul {
     font-weight: 700;
     padding: 10px 20px;
     border-radius: 15px;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/*form style*/
+/*send button hover*/
+.contact .left-side .button:hover {
+    background-color: white;
+    color: var(--green-primary);
+}
+
+/*======form style======*/
+/*form label style*/
 .label {
     font-size: 14px;
     font-weight: 600;
     margin-bottom: 5px;
 }
 
+/*form input box style*/
 .input {
     border: none;
     padding: 10px;
@@ -359,6 +405,7 @@ nav ul {
     background-color: var(--green-light);
 }
 
+/*form textarea style*/
 .textarea {
     border: none;
     background-color: var(--green-light);
@@ -374,12 +421,15 @@ nav ul {
     padding-top: 20px;
 }
 
+/*right-side contact title style*/
 .contact .right-side .sub-cont .text{
     margin: 0;
     padding: 0;
     font-weight: 700;
     color: var(--green-primary);
 }
+
+/*right-side contact content style*/
 .contact .right-side .sub-cont .content{
     margin: 0;
     padding: 0;
@@ -398,17 +448,21 @@ footer {
     align-items: center;
 }
 
+/*footer title style*/
 footer .title {
     font-size: 20px;
     font-weight:600;
     color: white;
 }
 
+/*footer stakeholder logo style*/
 footer .logos {
     height: 100px;
 }
 
+/*footer copyright text style*/
 footer .rights {
+    margin-top: 20px;
     font-weight: 600;
     font-size: 15px;
     color: white;
