@@ -98,6 +98,34 @@ nav ul {
     color: var(--blue-primary);
 }
 
+/*dropdown menu style*/
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    background-color: white;
+    box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.2);
+    border-radius: 2px 2px 5px 5px;
+    padding: 5px 10px;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu li {
+    padding: 5px 0;
+}
+
+.dropdown-menu li a{
+    font-weight: 600;
+    color: var(--blue-primary);
+    transition: color 0.3s ease;
+}
+
+.dropdown-menu li a:hover{
+    color: var(--green-primary);
+}
+
 
 
 
@@ -162,6 +190,7 @@ nav ul {
 
 /*detail button style*/
 .detail-button {
+    cursor: pointer;
     padding: 15px 18px;
     max-width: 40%;
     font-size: 18px;
@@ -335,9 +364,11 @@ nav ul {
 
 /*card container style*/
 .service .card .container {
+    cursor: pointer;
     height: 200px;
     width: 230px;
-    border: 2px solid var(--green-primary);
+    /* border: 2px solid var(--green-primary); */
+    border: 3px solid var(--green-light);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -347,8 +378,8 @@ nav ul {
 
 /*card container hover*/
 .service .card .container:hover {
-    background-color: var(--green-primary);
-    border: 2px solid var(--green-primary);
+    background-color: var(--green-light);
+    border: 3px solid var(--green-light);
 }
 
 /*card text*/
@@ -374,7 +405,7 @@ nav ul {
 
 /*change the card container icon color when hover*/
 .service .card .container:hover img {
-    filter: brightness(1.3);
+    filter: brightness(1.1);
 }
 
 
@@ -413,6 +444,7 @@ nav ul {
 
 /*send button*/
 .contact .left-side .button {
+    cursor: pointer;
     margin-top: 20px;
     background-color: var(--green-primary);
     border: 2px solid var(--green-primary);
@@ -456,7 +488,7 @@ nav ul {
 .contact .right-side {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 10px;
     padding-left: 80px;
     padding-top: 20px;
 }
@@ -465,14 +497,29 @@ nav ul {
 .contact .right-side .sub-cont .text{
     margin: 0;
     padding: 0;
-    font-weight: 700;
+    font-weight: 600;
+    font-size: 15px;
     color: var(--green-primary);
 }
 
 /*right-side contact content style*/
 .contact .right-side .sub-cont .content{
+    font-size: 13px;
     margin: 0;
     padding: 0;
+}
+
+.contact .right-side .map-box {
+    width: 330px;
+    height: 200px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.map-box .google-map {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 

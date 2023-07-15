@@ -51,5 +51,24 @@ window.addEventListener("scroll", function() {
       smoothScroll(target);
     });
   });
+
+
+  //Contact Form Validation Function
+  const form = document.querySelector("#contact-form");
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    //Get values from form
+    const name = document.querySelector("#name").value;
+    const email = document.querySelector("#email").value;
+    const message = document.querySelector("#message").value;
+  
+    //Send the message via email
+    const bpjsEmail = "makermoney942@gmail.com";
+    const subject = `Pesan Baru untuk Mata Kuliah PHP-HTML`;
+    const emailContent = `From: ${name} (${email}\n\n${message})`;
+  
+    //send the email using service
+  });
   
   
