@@ -1,9 +1,13 @@
 /*sticky header -> add "sticky" in header class*/
 window.addEventListener("scroll", function() {
     var header = document.querySelector("header");
-    var navItems = document.querySelectorAll("header .nav-item")
+    var navItems = document.querySelectorAll("header .nav-item");
     var toTop = document.querySelector(".back-to-top");
     var logoImg = document.querySelector(".logo img");
+    var loginButton = document.querySelector(".login-button");
+
+    /*add sticky class to Login-Button when scroll down*/
+    loginButton.classList.toggle("sticky", window.scrollY > 0);
 
     /*add sticky class to Header when scroll down*/
     header.classList.toggle("sticky", window.scrollY > 0);

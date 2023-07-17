@@ -126,6 +126,35 @@ nav ul {
     color: var(--green-primary);
 }
 
+/*Admin Login Button*/
+.header .login-button {
+    background-color: var(--blue-primary);
+    padding: 5px 15px;
+    border-radius: 15px;
+    color: white;
+    font-weight: 600;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.header .login-button:hover {
+    background-color: var(--green-primary);
+    color: white;
+}
+
+/*Admin Login Button When Scroll Down*/
+.header .login-button.sticky {
+    background-color: white;
+    padding: 5px 15px;
+    border-radius: 15px;
+    color: var(--green-primary);
+    font-weight: 600;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.header .login-button.sticky:hover {
+    background-color: var(--blue-primary);
+    color: white;
+}
 
 
 

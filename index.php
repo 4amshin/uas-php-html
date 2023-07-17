@@ -37,6 +37,7 @@
             </ul>
           </li>
           <li><a href="#contact" class="nav-item">Kontak</a></li>
+          <a href="login.php" class="login-button">Login</a>
         </ul>
       </nav>
     </header>
@@ -218,6 +219,6 @@
     </a>
 
     <!--JavaScript Link-->
-    <script src="/assets/js/script.js"></script>
+    <script src="assets/js/script.js"></script>
   </body>
 </html>
