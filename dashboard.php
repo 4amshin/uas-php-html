@@ -1,3 +1,13 @@
+<?php
+
+session_start();
+
+if(!isset($_SESSION['username'])) {
+    header("Location: index.php?access_denied");
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,5 +18,6 @@
 </head>
 <body>
     <h1>Admin Dashboard</h1>
+    <a href="controller/do_logout.php">Logout</a>
 </body>
 </html>

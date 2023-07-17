@@ -3,7 +3,7 @@
 include '../database/db_config.php';
 
 $username = (htmlentities($_POST['username']));
-$password = (htmlentities($_POST['username']));
+$password = (htmlentities($_POST['password']));
 // $password = (htmlentities(md5($_POST['username'])));
 
 $query = "SELECT * FROM users WHERE username = '$username' AND password = '$password'";
