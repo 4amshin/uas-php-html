@@ -109,6 +109,7 @@ a {
 }
 
 .menu-option .edit:hover {
-    background-color: var(--green-light);
+    background-color: var(--blue-primary);
     border: 2px solid var(--blue-primary);
+    color: white;
 }

@@ -1,9 +1,26 @@
 <?php
 
+/*import database connection*/
+include 'database/db_config.php';
+
 session_start();
 
 if(!isset($_SESSION['username'])) {
     header("Location: index.php?access_denied");
+}
+
+/*ambil semua data dalam tabel 'dashboard-menu*/
+$query = "SELECT * FROM `dashboard-menu`";
+$result = mysqli_query($connect, $query);
+
+/*tutup koneksi db*/
+mysqli_close($connect);
+
+
+// tampilkan pesan 'login-berhasil' 1x saja
+if (!isset($_SESSION['login_message_shown'])) {
+    echo '<script>alert("Login Berhasil");</script>';
+    $_SESSION['login_message_shown'] = true;
 }
 
 ?>
@@ -19,31 +36,18 @@ if(!isset($_SESSION['username'])) {
     <link rel="stylesheet" href="assets/css/dashboard.css" />
 </head>
 <body>
-    <script>alert("Login Berhasil");</script>
     <div class="container">
         <h1 class="title">Admin Dashboard</h1>
         <a href="controller/do_logout.php" class="logout-button">LogOut</a>
         <div class="option">
-            <div class="menu-option">
-                <p class="title">Home Section</p>
-                <a href="" class="edit">Edit</a>
-            </div>
-            <div class="menu-option">
-                <p class="title">About Section</p>
-                <a href="" class="edit">Edit</a>
-            </div>
-            <div class="menu-option">
-                <p class="title">Service Section</p>
-                <a href="" class="edit">Edit</a>
-            </div>
-            <div class="menu-option">
-                <p class="title">Contact Section</p>
-                <a href="" class="edit">Edit</a>
-            </div>
-            <div class="menu-option">
-                <p class="title">Images Url</p>
-                <a href="" class="edit">Edit</a>
-            </div>
+            <?php while ($menus = mysqli_fetch_assoc($result)) : ?> 
+                <div class="menu-option">
+                    <p class="title">
+                        <?= $menus['menu-name']; ?>
+                    </p>
+                    <a href="" class="edit">Edit</a>
+                </div>
+            <?php endwhile; ?>
         </div>
 </body>
 </html>
