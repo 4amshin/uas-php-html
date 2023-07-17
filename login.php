@@ -21,6 +21,7 @@
 <body>
     <div class="section">
         <div class="left-side">
+            <a href="index.php" class="back-link">Kembali</a>
             <img class="main-img" src="https://tinyurl.com/login-image" alt="main-img" />
             <h3 class="text">Informasi Seputar BPJS Kesehatan<br />Kota Palopo</h3>
         </div>

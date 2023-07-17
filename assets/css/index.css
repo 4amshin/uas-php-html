@@ -129,6 +129,7 @@ nav ul {
 /*Admin Login Button*/
 .header .login-button {
     background-color: var(--blue-primary);
+    border: 2px solid var(--blue-primary);
     padding: 5px 15px;
     border-radius: 15px;
     color: white;
@@ -137,13 +138,14 @@ nav ul {
 }
 
 .header .login-button:hover {
-    background-color: var(--green-primary);
-    color: white;
+    background-color: white;
+    color: var(--blue-primary);
 }
 
 /*Admin Login Button When Scroll Down*/
 .header .login-button.sticky {
     background-color: white;
+    border: 2px solid white;
     padding: 5px 15px;
     border-radius: 15px;
     color: var(--green-primary);
@@ -152,7 +154,7 @@ nav ul {
 }
 
 .header .login-button.sticky:hover {
-    background-color: var(--blue-primary);
+    background-color: var(--green-primary);
     color: white;
 }
 
@@ -379,23 +381,33 @@ nav ul {
 .service .card-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    row-gap: 20px;
-    column-gap: 120px;
+    row-gap: 10px;
+    column-gap: 100px;
 }
 
 /*card style*/
 .service .card {
+    background-color: white;
+    padding: 15px 15px;
+    border-radius: 65px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/*change card background color when card is hover*/
+.service .card:hover {
+    background-color: var(--green-light);
+    transform: scale(1.1);
 }
 
 /*card container style*/
 .service .card .container {
     cursor: pointer;
-    height: 200px;
-    width: 230px;
+    height: 180px;
+    width: 180px;
     /* border: 2px solid var(--green-primary); */
     border: 3px solid var(--green-light);
     display: flex;
@@ -405,10 +417,9 @@ nav ul {
     transition: background-color 0.3s ease;
 }
 
-/*card container hover*/
-.service .card .container:hover {
-    background-color: var(--green-light);
-    border: 3px solid var(--green-light);
+/*change container background color when card is hover*/
+.service .card:hover .container {
+    background-color: white;
 }
 
 /*card text*/
@@ -417,24 +428,16 @@ nav ul {
     font-weight: 600;
     line-height: 1.3;
     margin-top: 7px;
-    width: 230px;
+    margin-bottom: 5px;
+    width: 155px;
     text-align: center;
-}
-
-/*when card container is hover, change the card text color*/
-.service .card .container:hover + .text {
-    color: var(--green-primary);
+    font-size: 14px;
 }
 
 /*card container icon*/
 .service .card .container img {
-    height: 100px;
+    height: 40%;
     transition: brightness 0.3s ease;
-}
-
-/*change the card container icon color when hover*/
-.service .card .container:hover img {
-    filter: brightness(1.1);
 }
 
 
