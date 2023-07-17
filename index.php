@@ -1,3 +1,73 @@
+<?php
+
+include 'database/db_config.php';
+
+/*Home Text & Hero Image*/
+$homeQuery = "SELECT * FROM `dashboard-content` WHERE `menu-id` = 'home-menu' AND (title = 'Description' OR title = 'Hero Image')";
+$homeResult = $connect->query($homeQuery);
+
+$homeText = "No Data";
+$heroImage = "No Image Found";
+
+if($homeResult->num_rows > 0) {
+  while ($homeData = $homeResult->fetch_assoc()) {
+    if($homeData['title'] == 'Description') {
+      $homeText = $homeData['content'];
+    } elseif ($homeData['title'] == 'Hero Image') {
+      $heroImage = $homeData['content'];
+    }
+  }
+}
+
+/*About Description Text, Container Image, Icon Url and Text*/
+$aboutQuery = "SELECT * FROM `dashboard-content` WHERE `menu-id` = 'about-menu' AND (title = 'Description' OR title = 'Left Side Image' OR title = 'Card Icon' OR title = 'Card Text')";
+$aboutResult = $connect->query($aboutQuery);
+
+$aboutText = "No Description";
+$aboutImage = "No Image";
+$aboutCardIcon = "No Icon";
+$aboutCardText = "No Text";
+
+if($homeResult->num_rows > 0) {
+  while($aboutData = $aboutResult->fetch_assoc()) {
+    if($aboutData['title'] == 'Description') {
+      $aboutText = $aboutData['content'];
+    } elseif ($aboutData['title'] == 'Left Side Image') {
+      $aboutImage = $aboutData['content'];
+    } elseif ($aboutData['title'] == 'Card Icon') {
+      $aboutCardIcon = $aboutData['content'];
+    } elseif ($aboutData['title'] == 'Card Text') {
+      $aboutCardText = $aboutData['content'];
+    }
+  }
+}
+
+/*Service Card Icon & Text*/
+$serviceQuery = "SELECT * FROM `service-menu`";
+$serviceResult = mysqli_query($connect, $serviceQuery);
+
+/*Contact Email & Phone*/
+$contactQuery = "SELECT * FROM `dashboard-content` WHERE `menu-id` = 'contact-menu'";
+$contactResult = mysqli_query($connect, $contactQuery);
+
+/*Footer StakeHolder Logo*/
+$footerQuery = "SELECT * FROM `dashboard-content` WHERE `menu-id` = 'img-menu' AND title = 'Footer Stakeholder White Logo' Limit 1";
+$footerResult = $connect->query($footerQuery);
+
+$footerLogo = "No Data";
+
+if($footerResult->num_rows > 0) {
+  $footerData = $footerResult->fetch_assoc();
+  $footerLogo = $footerData['content'];
+}
+
+//Close the Database Connection
+// mysqli_close($connect);
+?>
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -49,13 +119,12 @@
         <h1 class="title two">KESEHATAN</h1>
         <h2 class="subtitle">KOTA PALOPO</h2>
         <p class="description">
-          Website ini menyediakan informasi seputar BPJS Kesehatan Cabang Kota
-          Palopo, seperti layanan, jenis layanan, fasilitas, dan lain-lainnya
+          <?= $homeText; ?>
         </p>
         <button class="detail-button">Lihat Selengkapnya</button>
       </div>
       <div class="right-side">
-        <img src="assets/images/lady-circle.png" alt="hero-image" />
+        <img src="<?= $heroImage; ?>" alt="hero-image" />
         <!-- <img src="https://tinyurl.com/lady-circle" alt="hero-image" /> -->
       </div>
     </section>
@@ -66,7 +135,7 @@
         <div class="image">
           <img
             class="office-img"
-            src="assets/images/office.png"
+            src="<?= $aboutImage;?>"
             alt="bpjs-picture"
           />
           <!-- <img
@@ -76,31 +145,15 @@
           /> -->
         </div>
         <div class="card">
-          <img src="assets/images/fast-response.png" alt="message-icon" />
+          <img src="<?= $aboutCardIcon;?>" alt="message-icon" />
           <!-- <img src="https://tinyurl.com/fast-response" alt="message-icon" /> -->
-          <p class="text">Layanan Cepat</p>
+          <p class="text"><?= $aboutCardText; ?></p>
         </div>
       </div>
       <div class="right-side">
         <h1 class="title">Deskripsi</h1>
         <p class="description">
-          <b class="bold-color">BPJS Kesehatan</b> adalah badan penyelenggara
-          jaminan sosial khusus untuk kesehatan.
-          <b class="bold-color">BPJS</b> merupakan transformasi dari
-          <b class="bold-color">PT Askes (persero)</b>, fungsi utama dari BPJS
-          Kesehatan ialah menyelenggarakan jaminan kesehatan bagi seluruh
-          masyarakat indonesia. Pada prosesnya, BPJS Kesehatan membantu
-          <b class="bold-color">menjamin kesehatan</b> dengan program-program
-          <b class="bold-color">asuransi kesehatan</b>.<br /><br /><b
-            class="bold-color"
-            >Asuruansi BPJS Kesehatan</b
-          >
-          sangat mudah diakses dengan
-          <b class="bold-color">kerjasama rumah sakit</b> yang sangat luas
-          diseluruh Indonesia. Untuk mendukung layanannya, BPJS Kesehatan
-          <b class="bold-color">melayani</b> baik secara langsun
-          <b class="bold-color">melalui kantor dan online</b> melalui website
-          BPJS yang dapat di akses secara online
+          <?= $aboutText; ?>
         </p>
       </div>
     </section>
@@ -110,53 +163,14 @@
       <h1 class="title">LAYANAN</h1>
 
       <div class="card-grid">
-        <div class="card">
-          <div class="container">
-            <img src="assets/icons/1-card.png" alt="register icon" />
-            <!-- <img src="https://tinyurl.com/kartu-satu" alt="register icon" /> -->
+        <?php while ($cards = mysqli_fetch_assoc($serviceResult)) : ?>
+          <div class="card">
+            <div class="container">
+              <img src="<?= $cards['icon-url']; ?>" alt="register icon" />
+            </div>
+            <p class="text"><?= $cards['title']; ?></p>
           </div>
-          <p class="text">Registrasi Peserta PPU Badan Usaha</p>
-        </div>
-
-        <div class="card">
-          <div class="container">
-            <img src="assets/icons/2-card.png" alt="register icon" />
-            <!-- <img src="https://tinyurl.com/kartu-dua" alt="register icon" /> -->
-          </div>
-          <p class="text">Layanan Peserta JKN-KIS</p>
-        </div>
-
-        <div class="card">
-          <div class="container">
-            <img src="assets/icons/3-card.png" alt="register icon" />
-            <!-- <img src="https://tinyurl.com/kartu-tiga" alt="register icon" /> -->
-          </div>
-          <p class="text">Informasi Fasilitas Kesehatan</p>
-        </div>
-
-        <div class="card">
-          <div class="container">
-            <img src="assets/icons/4-card.png" alt="register icon" />
-            <!-- <img src="https://tinyurl.com/kartu-empat" alt="register icon" /> -->
-          </div>
-          <p class="text">Skrining Riwayat Kesehatan</p>
-        </div>
-
-        <div class="card">
-          <div class="container">
-            <img src="assets/icons/5-card.png" alt="register icon" />
-            <!-- <img src="https://tinyurl.com/kartu-lima" alt="register icon" /> -->
-          </div>
-          <p class="text">Registrasi Autodebit</p>
-        </div>
-
-        <div class="card">
-          <div class="container">
-            <img src="assets/icons/6-card.png" alt="register icon" />
-            <!-- <img src="https://tinyurl.com/kartu-enam" alt="register icon" /> -->
-          </div>
-          <p class="text">Informasi, Pengaduan, Saran & Aspirasi</p>
-        </div>
+        <?php endwhile; ?>
       </div>
     </section>
 
@@ -187,14 +201,12 @@
         </div>
 
         <div class="right-side">
-          <div class="sub-cont">
-            <p class="text">Email</p>
-            <p class="content">bpjskspalopo@gmail.com</p>
-          </div>
-          <div class="sub-cont">
-            <p class="text">Phone</p>
-            <p class="content">+6280 12345678</p>
-          </div>
+          <?php while ($contacts = mysqli_fetch_assoc($contactResult)) : ?>
+            <div class="sub-cont">
+              <p class="text"><?= $contacts['title']; ?></p>
+              <p class="content"><?= $contacts['content']; ?></p>
+            </div>
+          <?php endwhile; ?>
           <div class="map-box">
             <iframe 
             class="google-map"
@@ -208,7 +220,7 @@
     <!--Footer Section-->
     <footer>
       <p class="title">Support By:</p>
-      <img class="logos" src="assets/icons/logo-w.png" alt="Sponsor Line Up">
+      <img class="logos" src="<?= $footerLogo; ?>" alt="Sponsor Line Up">
       <!-- <img class="logos" src="https://tinyurl.com/logo-white" alt="Sponsor Line Up"> -->
       <p class="rights">&copy Copyright UNCP - Palopo 2023</p>
     </footer>

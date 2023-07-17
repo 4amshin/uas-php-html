@@ -345,6 +345,8 @@ nav ul {
 
 /*right-side description text style*/
 .about .description {
+    width: 460px;
+    word-wrap: break-word;
     font-size: 17px;
     text-align: justify;
 }

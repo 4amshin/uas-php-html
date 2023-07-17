@@ -30,7 +30,7 @@ if (!isset($_SESSION['login_message_shown'])) {
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="widtah=device-width, initial-scale=1.0">
     <title>Dashboard</title>
     <!--Css Link-->
     <link rel="stylesheet" href="assets/css/dashboard.css" />
