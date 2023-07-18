@@ -96,3 +96,18 @@ a {
 .icon img{
     height: 50px;
 }
+
+.save-button {
+    margin-top: 20px;
+    padding: 5px 10px;
+    background-color: white;
+    border: none;
+    border-radius: 5px;
+    color: var(--blue-primary);
+    font-weight: 600;
+    transition: transform 0.3s ease;
+}
+
+.save-button:hover {
+    transform: scale(1.2);
+}
