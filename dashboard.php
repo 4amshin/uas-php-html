@@ -45,7 +45,7 @@ if (!isset($_SESSION['login_message_shown'])) {
                     <p class="title">
                         <?= $menus['menu-name']; ?>
                     </p>
-                    <a href="" class="edit">Edit</a>
+                    <a href="dashboard_editor_page.php?menu_id=<?= $menus['menu-id']; ?>" class="edit">Edit</a>
                 </div>
             <?php endwhile; ?>
         </div>
