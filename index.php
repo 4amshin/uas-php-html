@@ -2,6 +2,10 @@
 
   //import data_process.php file
   include 'controller/data_process.php';
+  include 'database/db_config.php';
+
+  $cardQuery = "SELECT * FROM `service-menu`";
+  $cardResult = mysqli_query($connect, $cardQuery);
 
 ?>
 
@@ -99,14 +103,14 @@
     <!--Service Section-->
     <section class="service" id="service">
       <h1 class="title">LAYANAN</h1>
-
-      <div class="card-grid">
-        <?php while ($cards = mysqli_fetch_assoc($serviceResult)) : ?>
+      
+      <div class="card-grid">       
+        <?php while ($card = mysqli_fetch_assoc($cardResult)) : ?>
           <div class="card">
             <div class="container">
-              <img src="<?= $cards['icon-url']; ?>" alt="register icon" />
+              <img src="<?= $card['icon-url']; ?>" alt="Service Icon">
             </div>
-            <p class="text"><?= $cards['title']; ?></p>
+            <p class="text"><?= $card['title']; ?></p>
           </div>
         <?php endwhile; ?>
       </div>
