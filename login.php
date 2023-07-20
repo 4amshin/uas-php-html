@@ -39,10 +39,6 @@
                     <input type="password" name="password" id="password" placeholder="Password" class="input" required />
                     <i class="fa-solid fa-lock"></i>
                 </div>
-                <!-- <div class="remember-me">
-                    <input class="checkbox" type="checkbox" name="remember-me">
-                    <label class="text">Ingat Saya</label>
-                </div> -->
                 <div class="input-field">
                     <input type="submit" name="login" value="LOGIN" class="submit" required />
                 </div>

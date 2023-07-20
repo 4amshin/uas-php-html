@@ -108,7 +108,7 @@
         <?php while ($card = mysqli_fetch_assoc($cardResult)) : ?>
           <div class="card">
             <div class="container">
-              <img src="<?= $card['icon-url']; ?>" alt="Service Icon">
+              <img src="<?= $card['icon_url']; ?>" alt="Service Icon">
             </div>
             <p class="text"><?= $card['title']; ?></p>
           </div>

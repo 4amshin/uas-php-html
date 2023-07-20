@@ -43,9 +43,9 @@ if (!isset($_SESSION['login_message_shown'])) {
             <?php while ($menus = mysqli_fetch_assoc($result)) : ?> 
                 <div class="menu-option">
                     <p class="title">
-                        <?= $menus['menu-name']; ?>
+                        <?= $menus['menu_name']; ?>
                     </p>
-                    <a href="dashboard_editor_page.php?menu_id=<?= $menus['menu-id']; ?>" class="edit">Edit</a>
+                    <a href="dashboard_editor_page.php?menu_id=<?= $menus['menu_id']; ?>" class="edit">Edit</a>
                 </div>
             <?php endwhile; ?>
         </div>

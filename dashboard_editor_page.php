@@ -17,16 +17,16 @@ if (isset($_GET['menu_id'])) {
     $menuId = $_GET['menu_id'];
 
     //ambil nama menu berdasarkan menuId
-    $titleQuery = "SELECT * FROM `dashboard-menu` WHERE `menu-id` = '$menuId' LIMIT 1";
+    $titleQuery = "SELECT * FROM `dashboard-menu` WHERE `menu_id` = '$menuId' LIMIT 1";
     $titleResult = mysqli_query($connect, $titleQuery);
-    $bigTitle = mysqli_fetch_assoc($titleResult)['menu-name'];
+    $bigTitle = mysqli_fetch_assoc($titleResult)['menu_name'];
 
     //cek jika menuId = service-menu maka query tabel service-menu
     if ($menuId === 'service-menu') {
         $contentQuery = "SELECT * FROM `service-menu`";
     } else {
         //else query tabel dashboard-content
-        $contentQuery = "SELECT * FROM `dashboard-content` WHERE `menu-id` = '$menuId'";
+        $contentQuery = "SELECT * FROM `dashboard-content` WHERE `menu_id` = '$menuId'";
     }
     $contentResult = mysqli_query($connect, $contentQuery);
 }
@@ -60,10 +60,12 @@ if (isset($_GET['menu_id'])) {
                         <div class="field">
                             <h1 class="title"><?= $data['title']; ?></h1>
                             <div class="icon">
-                                <img src="<?= $data['icon-url']; ?>" alt="">
-                                <input type="text" name="titles[]" value="<?= $data['title']; ?>">
-                                <input type="text" name="iconUrls[]" value="<?= $data['icon-url']; ?>">
+                                <img src="<?= $data['icon_url']; ?>" alt="">
+                                <input type="text" name="titles[<?= $data['id']; ?>]" value="<?= $data['title']; ?>">
+                                <input type="text" name="iconUrls[<?= $data['id']; ?>]" value="<?= $data['icon_url']; ?>">
                             </div>
+                            <!-- Add hidden input field for menu_ids -->
+                            <input type="hidden" name="menu_ids[]" value="<?= $data['id']; ?>">
                         </div>
                     <?php endwhile; ?>
                 <?php else : ?>
@@ -80,13 +82,21 @@ if (isset($_GET['menu_id'])) {
                             <?php endif; ?>
                             <!-- Add hidden input fields for title and menu-id -->
                             <input type="hidden" name="titles[<?= $data['id']; ?>]" value="<?= $data['title']; ?>">
-                            <input type="hidden" name="menu_ids[<?= $data['id']; ?>]" value="<?= $data['menu-id']; ?>">
+                            <input type="hidden" name="menu_ids[<?= $data['id']; ?>]" value="<?= $data['menu_id']; ?>">
                         </div>
                     <?php endwhile; ?>
                 <?php endif; ?>
 
                 <button type="submit" name="save-button" class="save-button">Simpan</button>
             </form>
+            <?php
+            if (isset($_GET['debug']) && $_GET['debug'] === 'true') {
+                echo "<pre>";
+                echo "POST data:\n";
+                print_r($_POST);
+                echo "</pre>";
+            }
+            ?>
         </div>
     </div>
 </body>

@@ -3,7 +3,7 @@
 include 'database/db_config.php';
 
 /*Home Text & Hero Image*/
-$homeQuery = "SELECT * FROM `dashboard-content` WHERE `menu-id` = 'home-menu' AND (title = 'Description' OR title = 'Hero Image')";
+$homeQuery = "SELECT * FROM `dashboard-content` WHERE `menu_id` = 'home-menu' AND (title = 'Description' OR title = 'Hero Image')";
 $homeResult = $connect->query($homeQuery);
 
 $homeText = "No Data";
@@ -20,7 +20,7 @@ if($homeResult->num_rows > 0) {
 }
 
 /*About Description Text, Container Image, Icon Url and Text*/
-$aboutQuery = "SELECT * FROM `dashboard-content` WHERE `menu-id` = 'about-menu' AND (title = 'Description' OR title = 'Left Side Image' OR title = 'Card Icon' OR title = 'Card Text')";
+$aboutQuery = "SELECT * FROM `dashboard-content` WHERE `menu_id` = 'about-menu' AND (title = 'Description' OR title = 'Left Side Image' OR title = 'Card Icon' OR title = 'Card Text')";
 $aboutResult = $connect->query($aboutQuery);
 
 $aboutText = "No Description";
@@ -47,11 +47,11 @@ $serviceQuery = "SELECT * FROM `service-menu`";
 $serviceResult = mysqli_query($connect, $serviceQuery);
 
 /*Contact Email & Phone*/
-$contactQuery = "SELECT * FROM `dashboard-content` WHERE `menu-id` = 'contact-menu'";
+$contactQuery = "SELECT * FROM `dashboard-content` WHERE `menu_id` = 'contact-menu'";
 $contactResult = mysqli_query($connect, $contactQuery);
 
 /*Footer StakeHolder Logo*/
-$footerQuery = "SELECT * FROM `dashboard-content` WHERE `menu-id` = 'img-menu' AND title = 'Footer Stakeholder White Logo' Limit 1";
+$footerQuery = "SELECT * FROM `dashboard-content` WHERE `menu_id` = 'img-menu' AND title = 'Footer Stakeholder White Logo' Limit 1";
 $footerResult = $connect->query($footerQuery);
 
 $footerLogo = "No Data";
